@@ -4,19 +4,22 @@ import { Airport } from "../models/airportSystem.js";
 import { RegularPassenger, StudentPassenger } from "../models/passenger.js";
 
 export const airport = new Airport();
-export const regularPassenger = new RegularPassenger(
-  "Sari",
-  "3232323",
-  100,
-  "Leumit",
-  false
+export const regularPassenger = new 
+RegularPassenger(
+                  "Sari",
+                  "3232323",
+                  100,
+                  "Leumit",
+                  false
 );
-export const studentPassenger = new StudentPassenger(
-  "Efraim",
-  "326080025",
-  15000,
-  "KodCode"
+export const studentPassenger = new
+ StudentPassenger(
+                  "Efraim",
+                  "326080025",
+                  15000,
+                  "KodCode"
 );
+
 airport.buyRegularTicket(airport.flights[0], regularPassenger);
 airport.buyVipTicket(airport.flights[1], studentPassenger);
 
