@@ -52,8 +52,7 @@ export class Airport {
       return;
     }
     if (passenger.amountOfMoney < flight.vipTicketPrice) {
-      console.log("There is not enough money to purchase the ticket.");
-      return;
+      return false;
     }
     const placeNumber = flight.ticketList.filter(
       (t) => t.ownerNmae == null && t instanceof VipTicket
@@ -70,7 +69,7 @@ export class Airport {
       price = price * 0.15;
     }
     passenger.amountOfMoney -= price;
-    console.log({ price, "your ticket": flight.ticketList[placeIndex] });
+    return { price, ticket: flight.ticketList[placeIndex] };
   }
   buyRegularTicket(flight, passenger) {
     if (
@@ -82,8 +81,7 @@ export class Airport {
       return;
     }
     if (passenger.amountOfMoney < flight.regularTicketPrice) {
-      console.log("There is not enough money to purchase the ticket.");
-      return;
+      return false;
     }
     const placeNumber = flight.ticketList.filter(
       (t) => t.ownerNmae == null && t instanceof RegularTicket
@@ -103,6 +101,6 @@ export class Airport {
       price = price * 0.2;
     }
     passenger.amountOfMoney -= price;
-    console.log({ price, "your ticket": flight.ticketList[placeIndex] });
+    return { price, ticket: flight.ticketList[placeIndex] };
   }
 }
